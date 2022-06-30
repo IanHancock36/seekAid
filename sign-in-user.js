@@ -1,22 +1,24 @@
 import React, {useState} from 'react';
 import {authentication} from './firebase/firebase-config';
-import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import {SafeAreaView, Text, View, Button, TextInput} from 'react-native';
 
-const App = () => {
-  const [signedIn, setSignedIn] = useState(false);
+const SignInUser = () => {
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
-  const RegisterUser = () => {
-    createUserWithEmailAndPassword(authentication, userEmail, password)
-      .then(response => {
-        console.log(response);
+  const SignIn = () => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
       })
-      .catch(response => {
-        console.log(response);
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
       });
   };
-
   return (
     <SafeAreaView>
       <View>
@@ -31,10 +33,10 @@ const App = () => {
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
-        <Button title="Register" onPress={RegisterUser} />
+        <Button title="Register" onPress={SignInUser} />
       </View>
     </SafeAreaView>
   );
 };
 
-export default App;
+export default SignInUser;
