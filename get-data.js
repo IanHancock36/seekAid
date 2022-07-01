@@ -8,10 +8,8 @@ const GetData = () => {
   const GetUserData = async () => {
     const citiesCol = collection(db, 'cities');
     const citySnapShot = await getDocs(citiesCol);
-    const cityList = citySnapShot.docs.map(doc => {
-      doc.data();
-    });
-    console.log(cityList)
+    const cityList = citySnapShot.docs.map(doc => doc.data());
+
   };
   return (
     <SafeAreaView>
