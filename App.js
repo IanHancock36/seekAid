@@ -3,6 +3,7 @@ import {authentication} from './firebase/firebase-config';
 import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
 import {SafeAreaView, Text, View, Button, TextInput} from 'react-native';
 import SignInUser from './sign-in-user';
+import GetData from './get-data';
 
 const App = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -34,7 +35,8 @@ const App = () => {
         />
         <Button title="Register" onPress={RegisterUser} />
       </View> */}
-      <SignInUser />
+      {/* <SignInUser /> */}
+      <GetData />
     </SafeAreaView>
   );
 };
