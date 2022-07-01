@@ -1,22 +1,31 @@
 import React, {useState} from 'react';
 import {authentication} from './firebase/firebase-config';
-import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import {getAuth, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import {SafeAreaView, Text, View, Button, TextInput} from 'react-native';
 
 const SignInUser = () => {
-  const [userEmail, setUserEmail] = useState('');
+  const [signIn, setSignedIn] = useState(false);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const SignIn = () => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(authentication, email, password)
       .then(userCredential => {
-        // Signed in
-        const user = userCredential.user;
+        setSignedIn(true);
+        // const user = userCredential.user;
         // ...
       })
       .catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        console.log(error);
+      });
+  };
+  const SignOutUser = () => {
+    signOut(authentication)
+      .then(response => {
+        setSignedIn(false);
+      })
+      .catch(error => {
+        console.log(error);
       });
   };
   return (
@@ -24,8 +33,8 @@ const SignInUser = () => {
       <View>
         <TextInput
           placeholder="Email"
-          value={userEmail}
-          onChangeText={text => setUserEmail(text)}
+          value={email}
+          onChangeText={text => setEmail(text)}
         />
         <TextInput
           placeholder="password"
@@ -33,7 +42,11 @@ const SignInUser = () => {
           secureTextEntry={true}
           onChangeText={text => setPassword(text)}
         />
-        <Button title="Register" onPress={SignInUser} />
+        {signIn === true ? (
+          <Button title="Sign Out" onPress={SignOutUser} />
+        ) : (
+          <Button title="Sign In" onPress={SignIn} />
+        )}
       </View>
     </SafeAreaView>
   );

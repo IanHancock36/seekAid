@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {authentication} from './firebase/firebase-config';
 import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
 import {SafeAreaView, Text, View, Button, TextInput} from 'react-native';
+import SignInUser from './sign-in-user';
 
 const App = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <View>
+      {/* <View>
         <TextInput
           placeholder="Email"
           value={userEmail}
@@ -32,7 +33,8 @@ const App = () => {
           onChangeText={text => setPassword(text)}
         />
         <Button title="Register" onPress={RegisterUser} />
-      </View>
+      </View> */}
+      <SignInUser />
     </SafeAreaView>
   );
 };
