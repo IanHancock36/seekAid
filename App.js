@@ -3,6 +3,8 @@ import {NativeBaseProvider, Box} from 'native-base';
 import {authentication} from './firebase/firebase-config';
 import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
 import DailyCheckList from './daily-check-list';
+import ChallengeFaq from './challenge-faqs';
+import SignIn from './sign-up';
 import {
   SafeAreaView,
   Text,
@@ -23,7 +25,9 @@ const App = () => {
 
   return (
     <NativeBaseProvider>
-      <DailyCheckList />
+      {/* <DailyCheckList /> */}
+      {/* <SignIn /> */}
+      <ChallengeFaq />
     </NativeBaseProvider>
   );
 };
