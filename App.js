@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeBaseProvider, Box} from 'native-base';
 import {authentication} from './firebase/firebase-config';
 import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
@@ -19,15 +21,18 @@ import GetData from './get-data';
 import DailyTasks from './daily-tasks';
 import CompletedList from './completed-list';
 
+const Stack = createNativeStackNavigator();
 const App = () => {
   // empty array below for data to append to
   const [data, setData] = useState([]);
 
   return (
     <NativeBaseProvider>
-      {/* <DailyCheckList /> */}
-      {/* <SignIn /> */}
-      <ChallengeFaq />
+      <NavigationContainer>
+        {/* <DailyCheckList /> */}
+        {/* <SignIn /> */}
+        <ChallengeFaq />
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 };
