@@ -6,7 +6,8 @@ import {authentication} from './firebase/firebase-config';
 import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
 import DailyCheckList from './daily-check-list';
 import ChallengeFaq from './challenge-faqs';
-import SignIn from './sign-up';
+import SignUp from './sign-up';
+import LoginScreen from './login';
 import {
   SafeAreaView,
   Text,
@@ -22,6 +23,32 @@ import DailyTasks from './daily-tasks';
 import CompletedList from './completed-list';
 
 const Stack = createNativeStackNavigator();
+const Auth = () => {
+  // Stack Navigator for Login and Sign up Screen
+  return (
+    <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{
+          title: 'Register', //Set Header Title
+          headerStyle: {
+            backgroundColor: '#307ecc', //Set Header color
+          },
+          headerTintColor: '#fff', //Set Header text color
+          headerTitleStyle: {
+            fontWeight: 'bold', //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 const App = () => {
   // empty array below for data to append to
   const [data, setData] = useState([]);
