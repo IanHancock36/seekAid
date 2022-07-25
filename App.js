@@ -57,7 +57,7 @@ const App = () => {
     <NativeBaseProvider>
       <NavigationContainer>
         {/* <DailyCheckList /> */}
-        {/* <SignIn /> */}
+        {/* <SignUp/> */}
         <ChallengeFaq />
       </NavigationContainer>
     </NativeBaseProvider>
