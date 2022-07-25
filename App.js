@@ -58,7 +58,7 @@ const App = () => {
       <NavigationContainer>
         {/* <DailyCheckList /> */}
         {/* <SignUp/> */}
-        <ChallengeFaq />
+        {/* <ChallengeFaq /> */}
       </NavigationContainer>
     </NativeBaseProvider>
   );

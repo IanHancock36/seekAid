@@ -6,8 +6,6 @@ import {
   Checkbox,
   Text,
   Input,
-  TextField,
-  Progress,
   Image,
   Button,
   ScrollView,
@@ -24,6 +22,7 @@ const DailyCheckList = () => {
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{marginTop: 60}}>
       <ScrollView>
+        <Button onPress={() => navigator.navigation.goBack()} />
         <VStack p="5">
           <Image
             source={require('./assets/SeekToDoMoreChallengeHeader.png')}
