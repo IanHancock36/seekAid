@@ -88,12 +88,6 @@ const DailyCheckList = () => {
               One Day At A Time You Can Do This!
             </Text>
             <HStack marginTop="4" justifyContent="center">
-              {/* <Image
-            source={require('./assets/Absolute-Aid-Logo-ForWhiteBackground.png')}
-            alt="Alternate Text"
-            width="90%"
-            height="90px"
-          /> */}
               <Button borderRadius="25px" onPress={() => logYourDay()}>
                 <Text bold color="#fff">
                   Log Your Day

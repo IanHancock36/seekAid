@@ -1,28 +1,20 @@
-import React, {useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NativeBaseProvider, Box} from 'native-base';
-import {authentication} from './firebase/firebase-config';
-import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
-import DailyCheckList from './daily-check-list';
-import ChallengeFaq from './challenge-faqs';
-import SignUp from './sign-up';
-import LoginScreen from './login';
-import {
-  SafeAreaView,
-  Text,
-  View,
-  Button,
-  TextInput,
-  FlatList,
-  StatusBar,
-} from 'react-native';
-import SignInUser from './sign-in-user';
-import GetData from './get-data';
-import DailyTasks from './daily-tasks';
-import CompletedList from './completed-list';
+import 'react-native-gesture-handler';
 
-const Stack = createNativeStackNavigator();
+// Import React and Component
+import React from 'react';
+
+// Import Navigators from React Navigation
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+// Import Screens
+import SplashScreen from './Screen/SplashScreen';
+import LoginScreen from './Screen/LoginScreen';
+import RegisterScreen from './Screen/RegisterScreen';
+import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
+
+const Stack = createStackNavigator();
+
 const Auth = () => {
   // Stack Navigator for Login and Sign up Screen
   return (
@@ -33,8 +25,8 @@ const Auth = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="SignUp"
-        component={SignUp}
+        name="RegisterScreen"
+        component={RegisterScreen}
         options={{
           title: 'Register', //Set Header Title
           headerStyle: {
@@ -49,67 +41,34 @@ const Auth = () => {
     </Stack.Navigator>
   );
 };
-const App = () => {
-  // empty array below for data to append to
-  const [data, setData] = useState([]);
 
+const App = () => {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        {/* <DailyCheckList /> */}
-        {/* <SignUp/> */}
-        {/* <ChallengeFaq /> */}
-      </NavigationContainer>
-    </NativeBaseProvider>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="SplashScreen">
+        {/* SplashScreen which will come once for 5 Seconds */}
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          // Hiding header for Splash Screen
+          options={{headerShown: false}}
+        />
+        {/* Auth Navigator: Include Login and Signup */}
+        <Stack.Screen
+          name="Auth"
+          component={Auth}
+          options={{headerShown: false}}
+        />
+        {/* Navigation Drawer as a landing page */}
+        <Stack.Screen
+          name="DrawerNavigationRoutes"
+          component={DrawerNavigationRoutes}
+          // Hiding header for Navigation Drawer
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
-// const submitHandler = value => {
-//   setData(prevTodo => {
-//     return [{key: Math.random().toString(), value: value}, ...prevTodo];
-//   });
-// };
-
-// const [signedIn, setSignedIn] = useState(false);
-// const [userEmail, setUserEmail] = useState('');
-// const [password, setPassword] = useState('');
-// const RegisterUser = () => {
-//   createUserWithEmailAndPassword(authentication, userEmail, password)
-//     .then(response => {
-//       console.log(response);
-//     })
-//     .catch(response => {
-//       console.log(response);
-//     });
-// };
-
-//    {/* <View>
-//<StatusBar barStyle="light-content" backgroundColor="midnightblue" />
-//</View>
-//<View>
-//  <FlatList
-//    data={data}
-//    renderItem={({item}) => <CompletedList item={item} />}
-//  />
-//  <CompletedList />
-//</View> */}
-
-//<View>
-// <TextInput
-//   placeholder="Email"
-//   value={userEmail}
-//   onChangeText={text => setUserEmail(text)}
-// />
-// <TextInput
-//   placeholder="password"
-//   value={password}
-//   secureTextEntry={true}
-//   onChangeText={text => setPassword(text)}
-// />
-// <Button title="Register" onPress={RegisterUser} />
-//<View>
-//<SignInUser />
-//<GetData />
-//<DailyTasks submitHandler={submitHandler} />
