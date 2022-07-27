@@ -1,44 +1,43 @@
-import React, {useState} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NativeBaseProvider, Box} from 'native-base';
-import {authentication} from './firebase/firebase-config';
-import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
-import DailyCheckList from './daily-check-list';
-import ChallengeFaq from './challenge-faqs';
-import SignUp from './sign-up';
-import LoginScreen from './login';
-import {
-  SafeAreaView,
-  Text,
-  View,
-  Button,
-  TextInput,
-  FlatList,
-  StatusBar,
-} from 'react-native';
-import SignInUser from './sign-in-user';
-import GetData from './get-data';
-import DailyTasks from './daily-tasks';
-import CompletedList from './completed-list';
+// import React, {useState} from 'react';
+// import {NavigationContainer} from '@react-navigation/native';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import {NativeBaseProvider, Box} from 'native-base';
+// import {authentication} from './firebase/firebase-config';
+// import {getAuth, createUserWithEmailAndPassword, signIN} from 'firebase/auth';
+// import DailyCheckList from './daily-check-list';
+// import ChallengeFaq from './challenge-faqs';
+// import SignUp from './sign-up';
+// import LoginScreen from './login';
+// import {
+//   SafeAreaView,
+//   Text,
+//   View,
+//   Button,
+//   TextInput,
+//   FlatList,
+//   StatusBar,
+// } from 'react-native';
+// import SignInUser from './sign-in-user';
+// import GetData from './get-data';
+// import DailyTasks from './daily-tasks';
+// import CompletedList from './completed-list';
 
+// const App = () => {
+//   // empty array below for data to append to
+//   const [data, setData] = useState([]);
 
-const App = () => {
-  // empty array below for data to append to
-  const [data, setData] = useState([]);
+//   return (
+//     <NativeBaseProvider>
+//       <NavigationContainer>
+//         {/* <DailyCheckList /> */}
+//         {/* <SignUp/> */}
+//         {/* <ChallengeFaq /> */}
+//       </NavigationContainer>
+//     </NativeBaseProvider>
+//   );
+// };
 
-  return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        {/* <DailyCheckList /> */}
-        {/* <SignUp/> */}
-        {/* <ChallengeFaq /> */}
-      </NavigationContainer>
-    </NativeBaseProvider>
-  );
-};
-
-export default App;
+// export default App;
 
 // const submitHandler = value => {
 //   setData(prevTodo => {
