@@ -20,9 +20,8 @@ const DailyCheckList = () => {
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
-    <View style={{marginTop: 60}}>
+    <View style={{flex: 1, backgroundColor: '#fff'}}>
       <ScrollView>
-        <Button onPress={() => navigator.navigation.goBack()} />
         <VStack p="5">
           <Image
             source={require('./assets/SeekToDoMoreChallengeHeader.png')}

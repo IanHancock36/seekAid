@@ -5,6 +5,8 @@ import {NativeBaseProvider} from 'native-base';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './test-nav-routes/home-screen';
 import SignUp from './sign-up';
+import LoginScreen from './login';
+import DailyCheckList from './daily-check-list';
 //**********Imports**********\\
 
 const Stack = createNativeStackNavigator();
@@ -15,7 +17,8 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
-
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="DailyCheckList" component={DailyCheckList} />
           <Stack.Screen name="SignUp" component={SignUp} />
         </Stack.Navigator>
       </NavigationContainer>
