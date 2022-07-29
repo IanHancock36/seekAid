@@ -24,7 +24,7 @@ const DailyCheckList = () => {
       <ScrollView>
         <VStack p="5">
           <Image
-            source={require('./assets/SeekToDoMoreChallengeHeader.png')}
+            source={require('../assets/SeekToDoMoreChallengeHeader.png')}
             alt="Alternate Text"
             width="95%"
             height="150px"

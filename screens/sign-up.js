@@ -8,7 +8,7 @@ const SignUp = ({navigation}) => {
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <VStack marginTop={10} alignItems="center">
         <Image
-          source={require('./assets/Absolute-Aid-Logo-ForWhiteBackground.png')}
+          source={require('../assets/Absolute-Aid-Logo-ForWhiteBackground.png')}
           alt="Alternate Text"
           width="90%"
           height="90px"
