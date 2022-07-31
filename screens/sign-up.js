@@ -1,9 +1,18 @@
-import {View, SafeAreaView} from 'react-native';
-import React from 'react';
+import {View} from 'react-native';
+import React, {useState} from 'react';
+import {useAuthState} from 'react-firebase-hooks/auth';
 import {Text, Input, HStack, VStack, Image, Button} from 'native-base';
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,
+} from '../firebase/firebase';
 
 const SignUp = ({navigation}) => {
-  const [submitting, setSubmitting] = React.useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [user, loading, error] = useAuthState(auth);
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <VStack marginTop={10} alignItems="center">

@@ -1,5 +1,9 @@
 import {View, SafeAreaView} from 'react-native';
-import {auth, signInWithEmailAndPassword, signInWithGoogle} from './firebase';
+import {
+  auth,
+  signInWithEmailAndPassword,
+  signInWithGoogle,
+} from '../firebase/firebase';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import React, {useState, useEffect} from 'react';
 import {Text, Input, HStack, VStack, Image, Button} from 'native-base';
@@ -87,3 +91,5 @@ const LoginScreen = ({navigation}) => {
 };
 
 export default LoginScreen;
+
+//useNavigate us the replacement for UseHistory.
