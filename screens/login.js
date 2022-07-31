@@ -1,11 +1,14 @@
 import {View, SafeAreaView} from 'react-native';
-import React, {useState} from 'react';
+import {auth, signInWithEmailAndPassword, signInWithGoogle} from './firebase';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import React, {useState, useEffect} from 'react';
 import {Text, Input, HStack, VStack, Image, Button} from 'native-base';
 
 const LoginScreen = ({navigation}) => {
   // const [submitting, setSubmitting] = React.useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [user, loading, error] = useAuthState(auth);
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <VStack marginTop={10} alignItems="center">
@@ -28,7 +31,7 @@ const LoginScreen = ({navigation}) => {
               value={email}
               autoCapitalize="none"
               keyboardType="email-address"
-              onChangeText={text => setEmail(text)}
+              onChange={e => setEmail(e.target.value)}
             />
           </View>
           <View>
@@ -38,7 +41,7 @@ const LoginScreen = ({navigation}) => {
               width="90%"
               secureTextEntry
               value={password}
-              onChangeText={text => setPassword(text)}
+              onChangeText={e => setPassword(e.target.value)}
             />
           </View>
           <HStack marginTop={5}>
@@ -53,7 +56,8 @@ const LoginScreen = ({navigation}) => {
             {/* {!submitting ? ( */}
             <Button
               width="95%"
-              onPress={() => navigation.navigate('DailyCheckList')}>
+              // onPress={() => navigation.navigate('DailyCheckList')}>
+              onPress={() => signInWithEmailAndPassword(email, password)}>
               <Text color="white" bold fontSize="md">
                 Login
               </Text>
