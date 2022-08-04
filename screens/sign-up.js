@@ -39,6 +39,7 @@ const SignUp = ({navigation}) => {
               placeholder="Email Address"
               width="90%"
               value={email}
+              autoCapitalize="none"
               onChangeText={text => setEmail(text)}
             />
             <Input

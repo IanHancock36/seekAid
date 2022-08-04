@@ -1,4 +1,4 @@
-import {View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView, Alert} from 'react-native';
 import {
   auth,
   signInWithEmailAndPassword,
@@ -12,7 +12,14 @@ const LoginScreen = ({navigation}) => {
   // const [submitting, setSubmitting] = React.useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, loading, error] = useAuthState(auth);
+  const onHandleLogin = () => {
+    if (email !== '' && password !== '') {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => console.log('LOGIN SUCCESSFUL'))
+        .catch(error => Alert.alert('Login Error', error.message));
+      navigation.navigate('DailyCheckList');
+    }
+  };
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <VStack marginTop={10} alignItems="center">
@@ -61,7 +68,7 @@ const LoginScreen = ({navigation}) => {
             <Button
               width="95%"
               // onPress={() => navigation.navigate('DailyCheckList')}>
-              onPress={() => signInWithEmailAndPassword(email, password)}>
+              onPress={onHandleLogin}>
               <Text color="white" bold fontSize="md">
                 Login
               </Text>
