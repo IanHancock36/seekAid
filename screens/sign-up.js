@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 import React, {useState} from 'react';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import {Text, Input, HStack, VStack, Image, Button} from 'native-base';
@@ -7,17 +7,17 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from '../firebase/firebase';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
 
 const SignUp = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [user, loading, error] = useAuthState(auth);
-
-  const registerNewUser = () => {
-    if (!name) registerWithEmailAndPassword(name, email, password);
-    // navigation.navigate('DailyCheckList');
-    console.log('PICKLES', name, email, password);
+  const onHandleSignup = () => {
+    if (email !== '' && password !== '') {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(console.log('SUCCESS SIGN UP'))
+        .catch(error => Alert.alert('LOGIN ERROR', error.message));
+    }
   };
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
@@ -33,16 +33,6 @@ const SignUp = ({navigation}) => {
         </Text>
 
         <VStack marginTop={10} alignItems="center">
-          <View style={{marginBottom: 20}}>
-            <Input
-              size="lg"
-              placeholder="Name"
-              width="90%"
-              value={name}
-              onChangeText={text => setName(text)}
-            />
-          </View>
-
           <View style={{marginBottom: 20}}>
             <Input
               size="lg"
@@ -67,7 +57,7 @@ const SignUp = ({navigation}) => {
 
           <HStack marginTop={4}>
             {/* {!submitting ? ( */}
-            <Button width="95%" onPress={() => registerNewUser()}>
+            <Button width="95%" onPress={onHandleSignup}>
               <Text color="white" bold fontSize="md">
                 Sign Up
               </Text>
