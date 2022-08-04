@@ -16,16 +16,24 @@ import {
   where,
   addDoc,
 } from 'firebase/firestore';
+// Import the functions you need from the SDKs you need
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDIXJ5YT7hoNbBFqK3TBcV41-TzIO-7n7w',
-  authDomain: 'fir-auth-6edd8.firebaseapp.com',
-  projectId: 'fir-auth-6edd8',
-  storageBucket: 'fir-auth-6edd8.appspot.com',
-  messagingSenderId: '904760319835',
-  appId: '1:904760319835:web:44fd0d957f114b4e51447e',
-  measurementId: 'G-Q4TYKH9GG7',
+  apiKey: 'AIzaSyD3foKA1fj2PpP6h0sAhl2QEv0WUdSF2A4',
+  authDomain: 'seek-aid-3eea7.firebaseapp.com',
+  projectId: 'seek-aid-3eea7',
+  storageBucket: 'seek-aid-3eea7.appspot.com',
+  messagingSenderId: '52156152234',
+  appId: '1:52156152234:web:22ea053d2df39eeb91d3d3',
 };
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();

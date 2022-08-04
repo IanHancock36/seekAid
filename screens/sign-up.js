@@ -16,7 +16,8 @@ const SignUp = ({navigation}) => {
 
   const registerNewUser = () => {
     if (!name) registerWithEmailAndPassword(name, email, password);
-    navigation.navigate('DailyCheckList');
+    // navigation.navigate('DailyCheckList');
+    console.log('PICKLES', name, email, password);
   };
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
