@@ -1,13 +1,9 @@
 import {View, SafeAreaView, Alert} from 'react-native';
-import {
-  auth,
-  signInWithEmailAndPassword,
-  signInWithGoogle,
-} from '../firebase/firebase';
+import {auth, signInWithGoogle} from '../firebase/firebase';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import React, {useState, useEffect} from 'react';
 import {Text, Input, HStack, VStack, Image, Button} from 'native-base';
-
+import {signInWithEmailAndPassword} from 'firebase/auth';
 const LoginScreen = ({navigation}) => {
   // const [submitting, setSubmitting] = React.useState(false);
   const [email, setEmail] = useState('');
