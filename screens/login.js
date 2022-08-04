@@ -35,7 +35,7 @@ const LoginScreen = ({navigation}) => {
               value={email}
               autoCapitalize="none"
               keyboardType="email-address"
-              onChange={e => setEmail(e.target.value)}
+              onChangeText={text => setEmail(text)}
             />
           </View>
           <View>
@@ -45,7 +45,7 @@ const LoginScreen = ({navigation}) => {
               width="90%"
               secureTextEntry
               value={password}
-              onChangeText={e => setPassword(e.target.value)}
+              onChangeText={text => setPassword(text)}
             />
           </View>
           <HStack marginTop={5}>

@@ -13,6 +13,11 @@ const SignUp = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [user, loading, error] = useAuthState(auth);
+
+  const registerNewUser = () => {
+    if (!name) registerWithEmailAndPassword(name, email, password);
+    navigation.navigate('DailyCheckList');
+  };
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <VStack marginTop={10} alignItems="center">
@@ -28,13 +33,31 @@ const SignUp = ({navigation}) => {
 
         <VStack marginTop={10} alignItems="center">
           <View style={{marginBottom: 20}}>
-            <Input size="lg" placeholder="First Name" width="90%" />
+            <Input
+              size="lg"
+              placeholder="Name"
+              width="90%"
+              value={name}
+              onChangeText={text => setName(text)}
+            />
           </View>
+
           <View style={{marginBottom: 20}}>
-            <Input size="lg" placeholder="Last Name" width="90%" />
-          </View>
-          <View style={{marginBottom: 20}}>
-            <Input size="lg" placeholder="Email Address" width="90%" />
+            <Input
+              size="lg"
+              placeholder="Email Address"
+              width="90%"
+              value={email}
+              onChangeText={text => setEmail(text)}
+            />
+            <Input
+              size="lg"
+              mt="5"
+              placeholder="Password"
+              width="90%"
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
 
             <Text color="primary.700" mt="2" bold alignSelf="center">
               Challenge FAQ's
@@ -43,9 +66,7 @@ const SignUp = ({navigation}) => {
 
           <HStack marginTop={4}>
             {/* {!submitting ? ( */}
-            <Button
-              width="95%"
-              onPress={() => navigation.navigate('DailyCheckList')}>
+            <Button width="95%" onPress={() => registerNewUser()}>
               <Text color="white" bold fontSize="md">
                 Sign Up
               </Text>
