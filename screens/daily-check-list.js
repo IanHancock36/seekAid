@@ -13,6 +13,8 @@ import {
 // Ian to do Check out toast when you click the submit the day button
 const DailyCheckList = () => {
   const [checked, setChecked] = useState(false);
+
+// Ian todo set a onChecked onpress to change it with this use state and shows the check
   const logYourDay = () => {
     return Alert.alert(
       'Congratulations you have successfully completed your day 1 of 30! ',
@@ -32,13 +34,13 @@ const DailyCheckList = () => {
           />
           <VStack marginBottom="4" alignItems="center" width="90%" />
           <VStack>
-            <Checkbox checked={false} size="md" value="green ">
+            <Checkbox isChecked={false} size="md" value="green ">
               <Text bold fontSize="lg">
                 1. Physical
               </Text>
             </Checkbox>
             <HStack justifyContent="space-between">
-              <Checkbox checked={false} size="md" value="green">
+              <Checkbox { !checked? isChecked=true : isChecked=false }size="md" value="green">
                 <Text bold fontSize="lg">
                   2. Diet
                 </Text>
@@ -49,27 +51,27 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             </HStack>
-            <Checkbox checked={false} size="md" value="green">
+            <Checkbox isChecked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 3. Spiritual
               </Text>
             </Checkbox>
-            <Checkbox checked={false} size="md" value="green">
+            <Checkbox isChecked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 4. Education
               </Text>
             </Checkbox>
-            <Checkbox checked={false} size="md" value="green">
+            <Checkbox isChecked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 5. Reading
               </Text>
             </Checkbox>
-            <Checkbox checked={false} size="md" value="green">
+            <Checkbox isChecked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 6. Hobbies
               </Text>
             </Checkbox>
-            <Checkbox checked={false} size="md" value="green">
+            <Checkbox isChecked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 7. Bonus/Other
               </Text>
