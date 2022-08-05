@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Alert} from 'react-native';
 import {
   HStack,
@@ -12,6 +12,7 @@ import {
 } from 'native-base';
 // Ian to do Check out toast when you click the submit the day button
 const DailyCheckList = () => {
+  const [checked, setChecked] = useState(false);
   const logYourDay = () => {
     return Alert.alert(
       'Congratulations you have successfully completed your day 1 of 30! ',
@@ -31,13 +32,13 @@ const DailyCheckList = () => {
           />
           <VStack marginBottom="4" alignItems="center" width="90%" />
           <VStack>
-            <Checkbox size="md" value="green ">
+            <Checkbox checked={false} size="md" value="green ">
               <Text bold fontSize="lg">
                 1. Physical
               </Text>
             </Checkbox>
             <HStack justifyContent="space-between">
-              <Checkbox size="md" value="green">
+              <Checkbox checked={false} size="md" value="green">
                 <Text bold fontSize="lg">
                   2. Diet
                 </Text>
@@ -48,27 +49,27 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             </HStack>
-            <Checkbox size="md" value="green">
+            <Checkbox checked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 3. Spiritual
               </Text>
             </Checkbox>
-            <Checkbox size="md" value="green">
+            <Checkbox checked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 4. Education
               </Text>
             </Checkbox>
-            <Checkbox size="md" value="green">
+            <Checkbox checked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 5. Reading
               </Text>
             </Checkbox>
-            <Checkbox size="md" value="green">
+            <Checkbox checked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 6. Hobbies
               </Text>
             </Checkbox>
-            <Checkbox size="md" value="green">
+            <Checkbox checked={false} size="md" value="green">
               <Text bold fontSize="lg">
                 7. Bonus/Other
               </Text>
