@@ -14,7 +14,8 @@ import {
 const DailyCheckList = () => {
   const [checked, setChecked] = useState(false);
 
-// Ian todo set a onChecked onpress to change it with this use state and shows the check
+  // Ian todo set a onChecked onpress to change it with this use state and shows the check one button on press
+  // isChecked= false non checked, isChecked= true is checked with the onPress setCheckd(true)
   const logYourDay = () => {
     return Alert.alert(
       'Congratulations you have successfully completed your day 1 of 30! ',
@@ -34,48 +35,177 @@ const DailyCheckList = () => {
           />
           <VStack marginBottom="4" alignItems="center" width="90%" />
           <VStack>
-            <Checkbox isChecked={false} size="md" value="green ">
-              <Text bold fontSize="lg">
-                1. Physical
-              </Text>
-            </Checkbox>
+            {!checked ? (
+              <Checkbox
+                onPress={() => setChecked(false)}
+                isChecked={true}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  1. Physical
+                </Text>
+              </Checkbox>
+            ) : (
+              <Checkbox
+                onPress={() => setChecked(true)}
+                isChecked={false}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  1. Physical
+                </Text>
+              </Checkbox>
+            )}
             <HStack justifyContent="space-between">
-              <Checkbox { !checked? isChecked=true : isChecked=false }size="md" value="green">
-                <Text bold fontSize="lg">
-                  2. Diet
-                </Text>
-              </Checkbox>
-              <Checkbox size="md" value="green">
-                <Text bold fontSize="lg">
-                  Water
-                </Text>
-              </Checkbox>
+              {!checked ? (
+                <Checkbox
+                  onPress={() => setChecked(false)}
+                  isChecked={true}
+                  size="md"
+                  value="green ">
+                  <Text bold fontSize="lg">
+                    2. Diet
+                  </Text>
+                </Checkbox>
+              ) : (
+                <Checkbox
+                  onPress={() => setChecked(true)}
+                  isChecked={false}
+                  size="md"
+                  value="green ">
+                  <Text bold fontSize="lg">
+                    2. Diet
+                  </Text>
+                </Checkbox>
+              )}
+
+              {!checked ? (
+                <Checkbox
+                  onPress={() => setChecked(false)}
+                  isChecked={true}
+                  size="md"
+                  value="green ">
+                  <Text bold fontSize="lg">
+                    Water
+                  </Text>
+                </Checkbox>
+              ) : (
+                <Checkbox
+                  onPress={() => setChecked(true)}
+                  isChecked={false}
+                  size="md"
+                  value="green ">
+                  <Text bold fontSize="lg">
+                    Water
+                  </Text>
+                </Checkbox>
+              )}
             </HStack>
-            <Checkbox isChecked={false} size="md" value="green">
-              <Text bold fontSize="lg">
-                3. Spiritual
-              </Text>
-            </Checkbox>
-            <Checkbox isChecked={false} size="md" value="green">
-              <Text bold fontSize="lg">
-                4. Education
-              </Text>
-            </Checkbox>
-            <Checkbox isChecked={false} size="md" value="green">
-              <Text bold fontSize="lg">
-                5. Reading
-              </Text>
-            </Checkbox>
-            <Checkbox isChecked={false} size="md" value="green">
-              <Text bold fontSize="lg">
-                6. Hobbies
-              </Text>
-            </Checkbox>
-            <Checkbox isChecked={false} size="md" value="green">
-              <Text bold fontSize="lg">
-                7. Bonus/Other
-              </Text>
-            </Checkbox>
+            {!checked ? (
+              <Checkbox
+                onPress={() => setChecked(false)}
+                isChecked={true}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  3. Spiritual
+                </Text>
+              </Checkbox>
+            ) : (
+              <Checkbox
+                onPress={() => setChecked(true)}
+                isChecked={false}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  3. Spiritual
+                </Text>
+              </Checkbox>
+            )}
+            {!checked ? (
+              <Checkbox
+                onPress={() => setChecked(false)}
+                isChecked={true}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  4. Education
+                </Text>
+              </Checkbox>
+            ) : (
+              <Checkbox
+                onPress={() => setChecked(true)}
+                isChecked={false}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  4. Education
+                </Text>
+              </Checkbox>
+            )}
+            {!checked ? (
+              <Checkbox
+                onPress={() => setChecked(false)}
+                isChecked={true}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  5. Reading
+                </Text>
+              </Checkbox>
+            ) : (
+              <Checkbox
+                onPress={() => setChecked(true)}
+                isChecked={false}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  5. Reading
+                </Text>
+              </Checkbox>
+            )}
+            {!checked ? (
+              <Checkbox
+                onPress={() => setChecked(false)}
+                isChecked={true}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  6. Hobbies
+                </Text>
+              </Checkbox>
+            ) : (
+              <Checkbox
+                onPress={() => setChecked(true)}
+                isChecked={false}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  6. Hobbies
+                </Text>
+              </Checkbox>
+            )}
+            {!checked ? (
+              <Checkbox
+                onPress={() => setChecked(false)}
+                isChecked={true}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  7. Bonus/Other
+                </Text>
+              </Checkbox>
+            ) : (
+              <Checkbox
+                onPress={() => setChecked(true)}
+                isChecked={false}
+                size="md"
+                value="green ">
+                <Text bold fontSize="lg">
+                  7. Bonus/Other
+                </Text>
+              </Checkbox>
+            )}
             <Text marginTop="5" bold fontSize="xl">
               Notes:{' '}
             </Text>
