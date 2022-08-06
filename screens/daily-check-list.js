@@ -20,7 +20,7 @@ const DailyCheckList = () => {
   const [reading, setReading] = useState(false);
   const [hobbies, setHobbies] = useState(false);
   const [bonus, setBonus] = useState(false);
-  const [dailyNotes, setDailyNotes] = useState('');
+  const [dailyNotes, onChangeText] = useState('');
 
   // Ian todo set a onChecked onpress to change it with this use state and shows the check one button on press
   // isChecked= false non checked, isChecked= true is checked with the onPress setCheckd(true)
@@ -43,7 +43,7 @@ const DailyCheckList = () => {
           />
           <VStack marginBottom="4" alignItems="center" width="90%" />
           <VStack>
-            {!physical ? (
+            {physical ? (
               <Checkbox
                 onPress={() => setPhysical(false)}
                 isChecked={true}
@@ -65,7 +65,7 @@ const DailyCheckList = () => {
               </Checkbox>
             )}
             <HStack justifyContent="space-between">
-              {!diet ? (
+              {diet ? (
                 <Checkbox
                   onPress={() => setDiet(false)}
                   isChecked={true}
@@ -87,7 +87,7 @@ const DailyCheckList = () => {
                 </Checkbox>
               )}
 
-              {!water ? (
+              {water ? (
                 <Checkbox
                   onPress={() => setWater(false)}
                   isChecked={true}
@@ -109,7 +109,7 @@ const DailyCheckList = () => {
                 </Checkbox>
               )}
             </HStack>
-            {!spiritual ? (
+            {spiritual ? (
               <Checkbox
                 onPress={() => setSpiritual(false)}
                 isChecked={true}
@@ -130,7 +130,7 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!education ? (
+            {education ? (
               <Checkbox
                 onPress={() => setEducation(false)}
                 isChecked={true}
@@ -151,7 +151,7 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!reading ? (
+            {reading ? (
               <Checkbox
                 onPress={() => setReading(false)}
                 isChecked={true}
@@ -172,7 +172,7 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!hobbies ? (
+            {hobbies ? (
               <Checkbox
                 onPress={() => setHobbies(false)}
                 isChecked={true}
@@ -193,7 +193,7 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!bonus ? (
+            {bonus ? (
               <Checkbox
                 onPress={() => setBonus(false)}
                 isChecked={true}
@@ -218,6 +218,8 @@ const DailyCheckList = () => {
               Notes:{' '}
             </Text>
             <Input
+              value={dailyNotes}
+              onChangeText={text => onChangeText(text)}
               marginTop="5"
               height="150"
               borderRadius="15"
