@@ -74,6 +74,7 @@ const DailyCheckList = () => {
                   <Text bold fontSize="lg">
                     2. Diet
                   </Text>
+                  {console.log('', diet)}
                 </Checkbox>
               ) : (
                 <Checkbox
