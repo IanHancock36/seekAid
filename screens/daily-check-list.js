@@ -12,7 +12,15 @@ import {
 } from 'native-base';
 // Ian to do Check out toast when you click the submit the day button
 const DailyCheckList = () => {
-  const [checked, setChecked] = useState(false);
+  const [physical, setPhysical] = useState(false);
+  const [diet, setDiet] = useState(false);
+  const [water, setWater] = useState(false);
+  const [spiritual, setSpiritual] = useState(false);
+  const [education, setEducation] = useState(false);
+  const [reading, setReading] = useState(false);
+  const [hobbies, setHobbies] = useState(false);
+  const [bonus, setBonus] = useState(false);
+  const [dailyNotes, setDailyNotes] = useState('');
 
   // Ian todo set a onChecked onpress to change it with this use state and shows the check one button on press
   // isChecked= false non checked, isChecked= true is checked with the onPress setCheckd(true)
@@ -35,9 +43,9 @@ const DailyCheckList = () => {
           />
           <VStack marginBottom="4" alignItems="center" width="90%" />
           <VStack>
-            {!checked ? (
+            {!physical ? (
               <Checkbox
-                onPress={() => setChecked(false)}
+                onPress={() => setPhysical(false)}
                 isChecked={true}
                 size="md"
                 value="green ">
@@ -47,7 +55,7 @@ const DailyCheckList = () => {
               </Checkbox>
             ) : (
               <Checkbox
-                onPress={() => setChecked(true)}
+                onPress={() => setPhysical(true)}
                 isChecked={false}
                 size="md"
                 value="green ">
@@ -57,9 +65,9 @@ const DailyCheckList = () => {
               </Checkbox>
             )}
             <HStack justifyContent="space-between">
-              {!checked ? (
+              {!diet ? (
                 <Checkbox
-                  onPress={() => setChecked(false)}
+                  onPress={() => setDiet(false)}
                   isChecked={true}
                   size="md"
                   value="green ">
@@ -69,7 +77,7 @@ const DailyCheckList = () => {
                 </Checkbox>
               ) : (
                 <Checkbox
-                  onPress={() => setChecked(true)}
+                  onPress={() => setDiet(true)}
                   isChecked={false}
                   size="md"
                   value="green ">
@@ -79,9 +87,9 @@ const DailyCheckList = () => {
                 </Checkbox>
               )}
 
-              {!checked ? (
+              {!water ? (
                 <Checkbox
-                  onPress={() => setChecked(false)}
+                  onPress={() => setWater(false)}
                   isChecked={true}
                   size="md"
                   value="green ">
@@ -91,7 +99,7 @@ const DailyCheckList = () => {
                 </Checkbox>
               ) : (
                 <Checkbox
-                  onPress={() => setChecked(true)}
+                  onPress={() => setWater(true)}
                   isChecked={false}
                   size="md"
                   value="green ">
@@ -101,9 +109,9 @@ const DailyCheckList = () => {
                 </Checkbox>
               )}
             </HStack>
-            {!checked ? (
+            {!spiritual ? (
               <Checkbox
-                onPress={() => setChecked(false)}
+                onPress={() => setSpiritual(false)}
                 isChecked={true}
                 size="md"
                 value="green ">
@@ -113,7 +121,7 @@ const DailyCheckList = () => {
               </Checkbox>
             ) : (
               <Checkbox
-                onPress={() => setChecked(true)}
+                onPress={() => setSpiritual(true)}
                 isChecked={false}
                 size="md"
                 value="green ">
@@ -122,9 +130,9 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!checked ? (
+            {!education ? (
               <Checkbox
-                onPress={() => setChecked(false)}
+                onPress={() => setEducation(false)}
                 isChecked={true}
                 size="md"
                 value="green ">
@@ -134,7 +142,7 @@ const DailyCheckList = () => {
               </Checkbox>
             ) : (
               <Checkbox
-                onPress={() => setChecked(true)}
+                onPress={() => setEducation(true)}
                 isChecked={false}
                 size="md"
                 value="green ">
@@ -143,9 +151,9 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!checked ? (
+            {!reading ? (
               <Checkbox
-                onPress={() => setChecked(false)}
+                onPress={() => setReading(false)}
                 isChecked={true}
                 size="md"
                 value="green ">
@@ -155,7 +163,7 @@ const DailyCheckList = () => {
               </Checkbox>
             ) : (
               <Checkbox
-                onPress={() => setChecked(true)}
+                onPress={() => setReading(true)}
                 isChecked={false}
                 size="md"
                 value="green ">
@@ -164,9 +172,9 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!checked ? (
+            {!hobbies ? (
               <Checkbox
-                onPress={() => setChecked(false)}
+                onPress={() => setHobbies(false)}
                 isChecked={true}
                 size="md"
                 value="green ">
@@ -176,7 +184,7 @@ const DailyCheckList = () => {
               </Checkbox>
             ) : (
               <Checkbox
-                onPress={() => setChecked(true)}
+                onPress={() => setHobbies(true)}
                 isChecked={false}
                 size="md"
                 value="green ">
@@ -185,9 +193,9 @@ const DailyCheckList = () => {
                 </Text>
               </Checkbox>
             )}
-            {!checked ? (
+            {!bonus ? (
               <Checkbox
-                onPress={() => setChecked(false)}
+                onPress={() => setBonus(false)}
                 isChecked={true}
                 size="md"
                 value="green ">
@@ -197,7 +205,7 @@ const DailyCheckList = () => {
               </Checkbox>
             ) : (
               <Checkbox
-                onPress={() => setChecked(true)}
+                onPress={() => setBonus(true)}
                 isChecked={false}
                 size="md"
                 value="green ">
@@ -215,7 +223,6 @@ const DailyCheckList = () => {
               borderRadius="15"
               placeholder="Your thoughts for the day?"
             />
-
             <Text mt="4" fontSize="lg" alignSelf="center" bold>
               One Day At A Time You Can Do This!
             </Text>
