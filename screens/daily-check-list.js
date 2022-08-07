@@ -10,8 +10,11 @@ import {
   Button,
   ScrollView,
 } from 'native-base';
+import {db} from './firebase';
+import {collection, addDoc, Timestamp} from 'firebase/firestore';
 // Ian to do Check out toast when you click the submit the day button
 const DailyCheckList = () => {
+  const [formData, setFormData] = useState({});
   const [physical, setPhysical] = useState(false);
   const [diet, setDiet] = useState(false);
   const [water, setWater] = useState(false);
@@ -22,13 +25,30 @@ const DailyCheckList = () => {
   const [bonus, setBonus] = useState(false);
   const [dailyNotes, onChangeText] = useState('');
 
-  // Ian todo set a onChecked onpress to change it with this use state and shows the check one button on press
-  // isChecked= false non checked, isChecked= true is checked with the onPress setCheckd(true)
-  const logYourDay = () => {
-    return Alert.alert(
-      'Congratulations you have successfully completed your day 1 of 30! ',
-    );
+  const logYourDay = async () => {
+    try {
+      await addDoc(collection(db, 'tasks'), {
+        bonus: false,
+        dailyNotes: '',
+        diet: false,
+        education: false,
+        hobbies: false,
+        physical: false,
+        reading: false,
+        spiritual: false,
+        water: false,
+        created: Timestamp.now(),
+      });
+    } catch (error) {
+      Alert.alert(error);
+    }
   };
+
+  // const logYourDay = () => {
+  //   return Alert.alert(
+  //     'Congratulations you have successfully completed your day 1 of 30! ',
+  //   );
+  // };
 
   return (
     // eslint-disable-next-line react-native/no-inline-styles
