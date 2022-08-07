@@ -27,7 +27,7 @@ const DailyCheckList = () => {
 
   const logYourDay = async () => {
     try {
-      await addDoc(collection(db, 'tasks'), {
+      await addDoc(collection(db, 'dailyTasks'), {
         bonus: false,
         dailyNotes: '',
         diet: false,
