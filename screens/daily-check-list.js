@@ -14,7 +14,6 @@ import {db} from './firebase';
 import {collection, addDoc, Timestamp} from 'firebase/firestore';
 // Ian to do Check out toast when you click the submit the day button
 const DailyCheckList = () => {
-  const [formData, setFormData] = useState({});
   const [physical, setPhysical] = useState(false);
   const [diet, setDiet] = useState(false);
   const [water, setWater] = useState(false);
@@ -37,7 +36,6 @@ const DailyCheckList = () => {
         reading: false,
         spiritual: false,
         water: false,
-        created: Timestamp.now(),
       });
     } catch (error) {
       Alert.alert(error);
@@ -166,7 +164,7 @@ const DailyCheckList = () => {
                 onPress={() => setEducation(true)}
                 isChecked={false}
                 size="md"
-                value="green ">
+                value="green">
                 <Text bold fontSize="lg">
                   4. Education
                 </Text>
