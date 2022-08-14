@@ -47,10 +47,11 @@ const DailyCheckList = () => {
   //     'Congratulations you have successfully completed your day 1 of 30! ',
   //   );
   // };
-
+const date = new Date()
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <Text>{date}</Text>
       <ScrollView>
         <VStack p="5">
           <Image
